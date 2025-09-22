@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Semáforo con botón y temporizador </title>
+  <style>
+body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #222;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+.semaforo {
+      width: 100px;
+      background-color: #333;
+      padding: 20px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+     /*  text-shadow: 0 0 20px rgb(0, 247, 255); */
+    }
+
+.luz {
+      width: 60px;
+      height: 60px;
+      margin: 15px auto;
+      border-radius: 50%;
+      background-color: #555;
+      transition: background-color 0.3s;
+    }
+
+.rojo.active {
+      background-color: red;
+    }
+
+.amarillo.active {
+      background-color: yellow;
+    }
+
+.verde.active {
+      background-color: green;
+    }
+
+button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background-color: #08f;
+      color: white;
+      cursor: pointer;
+    }
+
+button:hover {
+      background-color: #06c;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="semaforo">
+    <div class="luz rojo" id="rojo"></div>
+    <div class="luz amarillo" id="amarillo"></div>
+    <div class="luz verde" id="verde"></div>
+  </div>
+
+  <button onclick="cambiarLuz()">Cambiar luz</button>
+
+  <script>
+    const luces = ["rojo", "amarillo", "verde"];
+    let index = 0;
+  function cambiarLuz() {
+      luces.forEach(luz => {
+        document.getElementById(luz).classList.remove("active");
+      });
+      const luzActual = luces[index];
+      document.getElementById(luzActual).classList.add("active");
+      index = (index + 1) % luces.length;
+    }
+    cambiarLuz();
+    setInterval(cambiarLuz, 4000);
+  </script>
+</body>
+</html>

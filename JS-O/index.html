@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirección por idioma</title>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(to right, #74ebd5, #ACB6E5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+    text-align: center;
+  }
+
+  #saludo {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  p {
+    font-size: 1.2em;
+    color: #555;
+  }
+</style>
+
+
+
+    <script>
+        window.onload = function () {
+            const lenguajeBasico = navigator.language.substring(0, 2);
+            let saludo = '';
+            let url = '';
+
+            switch (lenguajeBasico) {
+                case 'eu':
+                    saludo = 'Egun on';
+                    url = 'https://pt.wikipedia.org/wiki/Comunidade_Aut%C3%B3noma_do_Pa%C3%ADs_Basco';
+                    break;
+                case 'pt':
+                    saludo = 'Bom dia';
+                    url = 'https://pt.wikipedia.org/wiki/Portugal';
+                    break;
+                case 'es':
+                    saludo = 'Buenos días';
+                    url = 'https://es.wikipedia.org/wiki/Espa%C3%B1a';
+                    break;
+                case 'en':
+                    saludo = 'Good morning';
+                    url = 'https://es.wikipedia.org/wiki/Reino_Unido';
+                    break;
+                default:
+                    saludo = 'Bonjour';
+                    url = 'https://fr.wikipedia.org/wiki/France';
+                    break;
+            }
+            setTimeout(() => {
+                location.href = url;
+            }, 2000);
+        };
+    </script>
+</head>
+<body>
+    <h1 id="saludo">Detectando idioma...</h1>
+    <p>Serás redirigido según el idioma de tu navegador.</p>
+</body>
+</html>

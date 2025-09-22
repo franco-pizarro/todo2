@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.carrusel {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.diapositiva {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.diapositiva img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fade {
+  animation: fade 1.5s ease-in-out;
+}
+
+@keyframes fade {
+  from { opacity: 0.4; }
+  to   { opacity: 1; }
+}

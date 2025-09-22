@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PRUEBA </title>
+    <!-- enlace para incluir bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+ /* pone el fondo negro */
+        body{
+            background-color: rgb(0, 0, 0);
+        }
+    </style>
+  </head>
+<!-- define el cuerpode la pagina -->
+  <body>
+<!-- contenedor  -->
+     </div>
+<!--para q se pueda ver desde un movil -->
+		<div id="mov">
+  </div>		
+<!--para q se pueda ver desde un tablet -->
+		<div id="tab">
+ </div>
+<!--para q se pueda ver desde una pantalla grande -->
+		<div id="pan">
+<!--  contenedor para el contenido  -->
+       <div class="container  text-bg-secondary">
+<!-- define el titulo principal -->
+      <h1>FORMULARIO</h1>
+<!-- crea el formulario -->
+<form>
+<!-- agrupa contenido -->
+  <div class="mb-3 ">
+<!-- etiquetar un campo de formulario -->
+ <label for="nombre" class="form-label">Nombre completo</label>
+ <!-- ingresar el nombre  -->
+      <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre" required>
+    </div>
+  </form>
+    <label for="exampleInputnombre1" class="form-label">Dirección de correo electrónico</label>
+<!-- ingresar el email  -->
+    <input type="email" class="form-control" id="exampleInputnombre1" placeholder="Ingresa tu email"  aria-describedby="nombrelHelp">
+    <div id="emailHelp" class="form-text"></div>
+<!-- agrupa contenido -->
+   <div class="mb-3">
+<!-- ingresar el numero telefonico  -->
+                <label for="telefono" class="form-label">Número de Teléfono</label>
+                <input type="tel" class="form-control" id="telefono" name="telefono"
+                       placeholder="+00 000 000 000" required>
+<!-- ingresar la fecha de nacimiento  -->
+     <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+      <input type="date" class="form-control" id="fechaNacimiento" required>
+	</div>
+    <div class="mb-3">
+        <!-- seleccionar un evento  -->
+                <label for="evento" class="form-label">Selecciona un evento</label>
+                <select class="form-select" id="evento" name="evento" required>
+                  <option value="" selected disabled>-- Elige una opción --</option>
+                  <option value="conferencia">Conferencia</option>
+                  <option value="taller">Taller</option>
+                  <option value="Fiesta">Fiesta</option>
+                  <option value="networking"> Networking</option>
+                </select>
+              </div>
+<!-- ingresar la fecha del evento  --> 
+ <div class="mb-3">
+                <label for="fechaEvento" class="form-label">Fecha del evento</label>
+                <input type="date" class="form-control" id="fechaEvento" name="fechaEvento" required>
+              </div>
+<!--   ingresar el nuemero de asistentes  -->
+ <div class="mb-3">
+                <label for="asistentes" class="form-label">Número de asistentes</label>
+                <input type="number"
+                       class="form-control"
+                       id="asistentes"
+                       name="asistentes"
+                       min="1"
+                       max="100"
+                       required
+                       placeholder="Ingresa un número entre 1 y 100">
+              </div>
+<!-- para ingresar comentarios  -->
+                <div class="mb-3">
+                <label for="comentarios" class="form-label">Comentarios adicionales</label>
+                <textarea class="form-control"
+                          id="comentarios"
+                          name="comentarios"
+                          rows="4"
+                          placeholder="Escribe aquí tus comentarios, dudas o sugerencias..."></textarea>
+              </div>
+<!-- boton para enviar todo el formulario   -->
+              <button type="submit" class="btn btn-primary w-100">Enviar</button>
+		</div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>

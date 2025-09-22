@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Diseños de Formulario</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h2 {
+      margin-top: 40px;
+    }
+
+    form {
+      margin-bottom: 40px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      max-width: 600px;
+    }
+
+    /* Bloque 1: etiqueta y campo en la misma línea */
+    .linea-h {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .linea-h .form-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Bloque 2: dos columnas, etiquetas a la izquierda, inputs a la derecha */
+    .dos-columnas {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      row-gap: 10px;
+      column-gap: 15px;
+      align-items: center;
+    }
+
+    /* Bloque 3: alineación izquierda (ya estaba bien) */
+    .izquierda {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input {
+      padding: 6px;
+      border-radius: 4px;
+      border: 1px solid #aaa;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h2>1. En 3 líneas, label e input en la misma fila</h2>
+  <form class="linea-h">
+    <div class="form-row">
+      <label for="nombre1">Nombre</label>
+      <input type="text" id="nombre1">
+    </div>
+    <div class="form-row">
+      <label for="password1">Contraseña</label>
+      <input type="password" id="password1">
+    </div>
+    <div class="form-row">
+      <label for="fecha1">Fecha de nacimiento</label>
+      <input type="date" id="fecha1">
+    </div>
+  </form>
+
+  <h2>2. En 3 líneas, 2 columnas (labels a la izquierda)</h2>
+  <form class="dos-columnas">
+    <label for="nombre2">Nombre</label>
+    <input type="text" id="nombre2">
+    
+    <label for="password2">Contraseña</label>
+    <input type="password" id="password2">
+    
+    <label for="fecha2">Fecha de nacimiento</label>
+    <input type="date" id="fecha2">
+  </form>
+
+  <h2>3. En 6 líneas alineadas a la izquierda</h2>
+  <form class="izquierda">
+    <label for="nombre3">Nombre</label>
+    <input type="text" id="nombre3">
+    
+    <label for="password3">Contraseña</label>
+    <input type="password" id="password3">
+    
+    <label for="fecha3">Fecha de nacimiento</label>
+    <input type="date" id="fecha3">
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>prueba de carrucel</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      font-family: sans-serif;
+      background: linear-gradient(black 20%,rgb(1, 1, 51) 80%); 
+    }
+
+    h1{
+        box-shadow: 0 0 10px cyan;
+        background-color: black;
+    }
+
+    .carrusel {
+      position: relative;
+      width: 600px;
+      height: 400px;
+      overflow: hidden;
+      box-shadow: 0 0 10px cyan;
+      margin-bottom: 20px;
+    }
+
+    .diapositiva {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+
+    .diapositiva img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .flecha {
+      position: absolute;
+      top: 50%;
+      background: black;
+      color: white;
+      font-size: 30px;
+      padding: 10px;
+      z-index: 10;
+      box-shadow: 0 0 10px cyan;
+    }
+
+    .izquierda { left: 10px;}
+    .derecha { right: 10px; }
+
+    .controles {
+      display: flex;
+      gap: 10px;
+    }
+
+    .controles button {
+      background:black;
+      color: white;
+      border: 1px solid black;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      box-shadow: 0 0 10px cyan;
+    }
+
+    .controles button:hover {
+      background: #333;
+    }
+    .titulo {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 0 5px blue;
+   box-shadow: 0 0 10px cyan;
+}
+
+  </style>
+</head>
+<body>
+<h1> CARRUCEL </h1>
+<div class="carrusel">
+  <div class="diapositiva fade"><img src="imagenes/descarga (7).jpg" alt="fondo"> <div class="titulo">Fondo futurista</div>
+</div>
+  <div class="diapositiva fade"><img src="imagenes/skaylan.jpg" alt="skaylan"> <div class="titulo">nisan Skaylan </div>
+</div>
+  <div class="diapositiva fade"><img src="imagenes/paisaje.jpg" alt="paisaje animado"><div class="titulo">Paisaje animado</div>
+</div>
+
+  <button class="flecha izquierda" onclick="anterior()">&#10094;</button>
+  <button class="flecha derecha" onclick="siguiente()">&#10095;</button>
+</div>
+
+<div class="controles">
+  <button onclick="toggleAutoPlay()">Comenzar / Detener</button>
+  <button onclick="anterior()">Anterior</button>
+  <button onclick="siguiente()">Siguiente</button>
+</div>
+
+<script>
+  let indice = 0;
+  let intervalId;
+  let enEjecucion = true;
+
+  const diapositivas = document.getElementsByClassName("diapositiva");
+
+  function mostrarDiapositiva(i) {
+    for (let d of diapositivas) {
+      d.style.display = "none";
+    }
+    diapositivas[i].style.display = "block";
+  }
+
+  function siguiente() {
+    indice = (indice + 1) % diapositivas.length;
+    mostrarDiapositiva(indice);
+  }
+
+  function anterior() {
+    indice = (indice - 1 + diapositivas.length) % diapositivas.length;
+    mostrarDiapositiva(indice);
+  }
+
+  function autoplay() {
+    siguiente();
+  }
+
+  function iniciarAutoPlay() {
+    intervalId = setInterval(autoplay, 3000);
+    enEjecucion = true;
+  }
+
+  function detenerAutoPlay() {
+    clearInterval(intervalId);
+    enEjecucion = false;
+  }
+
+  function toggleAutoPlay() {
+    if (enEjecucion) {
+      detenerAutoPlay();
+    } else {
+      iniciarAutoPlay();
+    }
+  }
+  mostrarDiapositiva(indice);
+  iniciarAutoPlay();
+</script>
+
+</body>
+</html>
